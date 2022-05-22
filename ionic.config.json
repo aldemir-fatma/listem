@@ -1,0 +1,8 @@
+{
+  "name": "Listem",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "3a26ee95"
+}
