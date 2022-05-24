@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Giriş</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="login()" [formGroup]="credentials">
+    <div class="input-group">
+      <ion-item>
+        <ion-input type="text" placeholder="Kullanıcı adı" formControlName="username"></ion-input>
+      </ion-item>
+      <div *ngIf="username.errors" class="errors">
+        <span *ngIf="username.errors?.required">Kullanıcı adı gerekli</span>
+      </div>
+      <ion-item>
+        <ion-input type="password" placeholder="Şifre" formControlName="password"></ion-input>
+      </ion-item>
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">Şifre gerekli</span>
+        <span *ngIf="password.errors?.minlength">Şifre en az 6 karakter olmalı</span>
+      </div>
+    </div>
+ 
+    <ion-button type="submit" expand="block" [disabled]="!credentials.valid">GİRİŞ YAP</ion-button>
+    <ion-button type="button" expand="block" color="dark" fill="clear">ÜYE OL!</ion-button>
+    <ion-button type="button" expand="block" color="dark" fill="clear">ŞİFREMİ UNUTTUM</ion-button>
+ 
+  </form>
+</ion-content>

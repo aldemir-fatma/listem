@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Alışveriş Listelerim</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="addShoppingList()">
+        <ion-icon slot="start" name="add" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item-sliding  *ngFor="let item of lists" >
+      <ion-item button [routerLink]="[item.id]">
+        <ion-label class="ion-text-wrap">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.created_at | date:'d/M/y H:mm' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="secondary" (click)="removeShoppingList(item.id)">
+          <ion-icon slot="start" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    
+  </ion-list>
+</ion-content>

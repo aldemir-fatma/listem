@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Liste İçeriği</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="addShoppingListItem()">
+        <ion-icon slot="start" name="add" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item-sliding  *ngFor="let item of listItems" >
+      <ion-item button>
+        <ion-label class="ion-text-wrap">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.created_at | date:'d/M/y H:m' }}</p>
+        </ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="item.status" (ionChange)="checkboxClick($event, item)"></ion-checkbox>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="secondary" (click)="removeShoppingListItem(item.id)">
+          <ion-icon slot="start" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

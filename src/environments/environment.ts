@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiKey: '', // <-- Enter your own key here!'
+  baseUrl: 'https://alisverislistemfatma.000webhostapp.com/api',
+  images: 'http://image.tmdb.org/t/p',
 };
 
 /*
